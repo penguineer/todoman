@@ -50,6 +50,12 @@ jobs:
         - virtualenv env -p python3
         - source env/bin/activate
 
+    - os: windows
+      language: generic
+      env: TOXENV=py
+      before_install:
+        - choco install -y python
+
     - stage: deploy
       script:
         - pip install wheel twine
